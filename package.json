@@ -1,0 +1,19 @@
+{
+  "name": "node-pdfmake",
+  "version": "1.0.0",
+  "description": "Better node version of pdfmake",
+  "main": "index.js",
+  "repository": "https://github.com/DerTieran/node-pdfmake.git",
+  "author": "Philipp Beck <dertieran@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "pdfmake": "^0.1.26",
+    "stream-to-array": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-standard": "^7.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1"
+  }
+}
