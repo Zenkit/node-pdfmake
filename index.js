@@ -14,7 +14,9 @@ var defaultFonts = {
 }
 
 function Document (docDefinition) {
+function Document (docDefinition, renderOptions) {
   this.docDefinition = docDefinition
+  this.renderOptions = renderOptions
 }
 
 Document.prototype._createDoc = function (options) {
@@ -69,5 +71,7 @@ Document.prototype.getBase64 = function (options, callback) {
 module.exports = {
   createPdf: function (docDefinition) {
     return new Document(docDefinition)
+  createPdf: function (docDefinition, renderOptions) {
+    return new Document(docDefinition, renderOptions)
   }
 }
