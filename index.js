@@ -4,8 +4,6 @@ var path = require('path')
 var PdfPrinter = require('pdfmake')
 var streamToArray = require('stream-to-array')
 
-var defaultFonts = {}
-
 function Document (docDefinition, renderOptions) {
   this.docDefinition = docDefinition
   this.renderOptions = renderOptions
@@ -15,6 +13,7 @@ Document.prototype._createDoc = function (options) {
   options = options || {}
 
   var userLanguage = this.renderOptions.userLanguage
+  var defaultFonts = {};
 
 // pdfMake requires the objects defaultFonts and Roboto to be passed to it regardless of what actual fonts are used. This way we don't have to add any custom fonts to the pdfmake dependency directly. 
   if (userLanguage === 'zh' || userLanguage === 'ko') {
