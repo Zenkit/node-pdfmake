@@ -1,10 +1,10 @@
 module.exports = {
-    "env": {
-        "node": true
-    },
-    "extends": "standard",
-    "plugins": [
-        "standard",
-        "promise"
-    ]
+  env: {
+    es6: true,
+    node: true
+  },
+  extends: "eslint:recommended",
+  parserOptions: {
+    ecmaVersion: 2018
+  }
 };
