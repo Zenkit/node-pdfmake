@@ -1,4 +1,5 @@
 # Node PDFMake
+
 This is a wrapper around [pdfmake](https://github.com/bpampuch/pdfmake) to allow
 ~~client/~~**server** side PDF ~~printing~~ **creation** in pure JavaScript.
 
@@ -17,7 +18,7 @@ var pdfDocGenerator = nodePDFMake.createPdf(docDefinition);
 Returns the created PDF as a `Buffer`.
 
 ```js
-pdfDocGenerator.getBuffer(function (err, buffer) {
+pdfDocGenerator.getBuffer(function(err, buffer) {
   // ...
 });
 ```
@@ -25,10 +26,9 @@ pdfDocGenerator.getBuffer(function (err, buffer) {
 If `callback` is not defined, then it returns a promise.
 
 ```js
-pdfDocGenerator.getBuffer()
-  .then(function (buffer) {
-    // ...
-  })
+pdfDocGenerator.getBuffer().then(function(buffer) {
+  // ...
+});
 ```
 
 ### getBase64([options], [callback(err, data)])
@@ -36,7 +36,7 @@ pdfDocGenerator.getBuffer()
 Returns the created PDF as a `base64` encoded string.
 
 ```js
-pdfDocGenerator.getBase64(function (err, data) {
+pdfDocGenerator.getBase64(function(err, data) {
   // ...
 });
 ```
@@ -44,11 +44,11 @@ pdfDocGenerator.getBase64(function (err, data) {
 If `callback` is not defined, then it returns a promise.
 
 ```js
-pdfDocGenerator.getBase64()
-  .then(function (data) {
-    // ...
-  })
+pdfDocGenerator.getBase64().then(function(data) {
+  // ...
+});
 ```
 
 ## License
-[MIT](https://github.com/dertieran/node-pdfmake/blob/master/LICENSE)
+
+[MIT](https://github.com/Zenkit/node-pdfmake/blob/master/LICENSE)

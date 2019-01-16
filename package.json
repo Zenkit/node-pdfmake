@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Better node version of pdfmake",
   "main": "index.js",
-  "repository": "https://github.com/DerTieran/node-pdfmake.git",
-  "author": "Philipp Beck <dertieran@gmail.com>",
+  "repository": "https://github.com/Zenkit/node-pdfmake.git",
+  "author": "Zenkit <info@zenkit.com>",
   "license": "MIT",
   "dependencies": {
     "pdfmake": "^0.1.26",
