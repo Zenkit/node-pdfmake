@@ -1,53 +1,64 @@
-# Node PDFMake
+# Node PdfMake
 
-This is a wrapper around [pdfmake](https://github.com/bpampuch/pdfmake) to allow
-~~client/~~**server** side PDF ~~printing~~ **creation** in pure JavaScript.
+> A wrapper around [pdfmake](https://github.com/bpampuch/pdfmake) to make it easier to use with node.
 
 ## Usage
 
-For the `docDefinition` options see the [pdfmake documentation](https://github.com/bpampuch/pdfmake#document-definition-object).
-
-### createPdf(docDefinition)
-
 ```js
-var pdfDocGenerator = nodePDFMake.createPdf(docDefinition);
+const fs = require('fs');
+const createPdfPrinter = require('node-pdfmake');
+
+const printer = createPdfPrinter();
+
+const content = 'This is an sample PDF printed with node-pdfmake';
+const document = printer.createPdf({ content });
+
+document.getBuffer().then(buffer => fs.writeFileSync('sample.pdf', buffer));
 ```
 
-### getBuffer([options], [callback(err, buffer)])
+### createPdfPrinter([fonts])
 
-Returns the created PDF as a `Buffer`.
+Create a new pdf printer.
 
-```js
-pdfDocGenerator.getBuffer(function(err, buffer) {
-  // ...
-});
-```
+#### fonts
 
-If `callback` is not defined, then it returns a promise.
+Type: `Object`
 
-```js
-pdfDocGenerator.getBuffer().then(function(buffer) {
-  // ...
-});
-```
+A `pdfmake` font object (read more [here](https://pdfmake.github.io/docs/getting-started/server-side/))
 
-### getBase64([options], [callback(err, data)])
+**Note:** By default `node-pdfmake` includes the default `Roboto` font (default font of `pdfmake`) and the [standard-14-fonts](https://pdfmake.github.io/docs/fonts/standard-14-fonts/)
 
-Returns the created PDF as a `base64` encoded string.
+### printer.createPdf(docDefinition, [options])
 
-```js
-pdfDocGenerator.getBase64(function(err, data) {
-  // ...
-});
-```
+Create a new pdf document.
 
-If `callback` is not defined, then it returns a promise.
+#### docDefinition
 
-```js
-pdfDocGenerator.getBase64().then(function(data) {
-  // ...
-});
-```
+Type: `Object`
+
+A `pdfmake` document definition object (read more [here](https://pdfmake.github.io/docs/document-definition-object/))
+
+#### options
+
+Type: `Object`
+
+Some additional options normally set through `pdfmake` (e.g. `tableLayouts`, `progressCallback`)
+
+### document.getStream()
+
+Return the pdf document as a `stream`.
+
+### document.getBuffer()
+
+Return a `Promise` that resolves with the pdf document as a `Buffer`.
+
+### document.getBase64()
+
+Return a `Promise` that resolves with the pdf document encoded as a `base64` string.
+
+### createPdfPrinter.createPdf(docDefinition, [options])
+
+A shortcut to create a pdf document, fonts can be added by defining `options.fonts`
 
 ## License
 

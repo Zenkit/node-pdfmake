@@ -1,14 +1,14 @@
 {
   "name": "node-pdfmake",
   "version": "1.0.0",
-  "description": "Better node version of pdfmake",
+  "description": "A node wrapper for pdfmake",
   "main": "index.js",
   "repository": "https://github.com/Zenkit/node-pdfmake.git",
   "author": "Zenkit <info@zenkit.com>",
   "license": "MIT",
   "dependencies": {
-    "pdfmake": "^0.1.26",
-    "stream-to-array": "^2.3.0"
+    "get-stream": "^4.1.0",
+    "pdfmake": "^0.1.40"
   },
   "devDependencies": {
     "eslint": "^5.12.0"
